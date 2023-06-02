@@ -1,0 +1,141 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+.container {
+  height: 695.2px;
+  width: 1176px;
+
+  /* border: 2px solid black; */
+  display: block;
+
+  margin: -8px auto;
+  border-radius: 0px 0px 29px 29px;
+  z-index: -1;
+
+  background-color: rgb(27, 21, 32);
+  font-family: "Noto Sans", sans-serif;
+  box-shadow: rgba(26, 21, 32, 0.6) 0px 0px 36px;
+  padding: 10px 10px;
+  background: url("../images/bg.png");
+  background-size: cover;
+}
+
+div.navbar {
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+
+  box-sizing: border-box;
+  height: 110px;
+  width: 1111px;
+
+  padding-top: 2rem;
+}
+
+.navbar ul {
+  color: aliceblue;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+div.navbar ul li a {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  justify-content: space-around;
+  font-weight: 500;
+  z-index: 2;
+  cursor: pointer;
+}
+
+div.navbar ul li a:hover {
+  color: rgb(244, 148, 52);
+}
+
+div.quote {
+  width: 589px;
+  height: 286px;
+  font-size: 49px;
+  color: white;
+  /* font-weight: 200; */
+  padding: 7px 45px;
+  /* font-size: 36px; */
+  /* line-height: 52px; */
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  margin-bottom: 19px;
+}
+
+div.qt2 h3 {
+  width: 560px;
+  height: 208px;
+  font-weight: 100;
+  font-size: 16px;
+  margin-left: 41px;
+  padding-top: 20px;
+  color: white;
+}
+
+#ch {
+  font-size: 36px;
+  line-height: 52px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 1;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.social {
+  margin: 100px;
+}
+
+.social h2 {
+  font-size: 36px;
+  line-height: 52px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 60px;
+}
+* {
+  box-sizing: border-box;
+}
+
+button,
+.blue {
+  background: #ff9500;
+  width: 100px;
+}
+
+button {
+  margin: 10px;
+  background-color: #04aa6d;
+  color: white;
+  padding: 15px 34px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 21px;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+.signupbtn {
+  float: left;
+  width: 20%;
+  margin: 10px;
+}
+
+button a{
+  text-decoration: none;
+}
