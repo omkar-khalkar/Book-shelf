@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        section {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            
+            background-image: url('./images/bg3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            /* background-color: rgba(255, 255, 255, 0.8); */
+            width: 45%;
+            margin-bottom: 125px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .input-field {
+            margin-bottom: 10px;
+        }
+
+        .input-field label {
+            display: block;
+            font-size: 34px;
+            font-weight: bold;
+            margin-bottom: 5px;
+
+        }
+
+        .input-field select {
+            width: 80%;
+            
+            height: 40px;
+            /* padding: 16px 20px; */
+            border: none;
+            border-radius: 4px;
+            background-color: #270d0d36;
+           
+            padding: 5px;
+           
+            border: 1px solid #000000;
+            margin:19px;
+        }
+        
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #dd8b10;
+            color: #1f1e1d;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff9100;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 50px;
+            align-items: center;
+            display: flex;
+            background-color: black;
+            justify-content: space-between;
+
+        }
+
+        .logoimg span {
+            font-size: 23px;
+            font-weight: 400px;
+            color: #fff;
+        }
+
+        .links a {
+            padding: 20px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            letter-spacing: 2px;
+        }
+
+        .logoimg img {
+            filter: invert(100);
+            margin: 5px;
+        }
+
+        .logoimg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+            color: rgb(0, 182, 254);
+
+        }
+        .container h2{
+            font-size: 34px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <div class="navbar">
+            <div class="logoimg">
+                <img src="./images/logo.png" height="50px" alt="logo">
+                <span>BOOKSHELF</span>
+            </div>
+            <div class="links">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CONTACT</a>
+                <a href="#">SERVICES</a>
+            </div>
+        </div>
+    </nav>
+    <section>
+
+        <div class="container">
+            <h2>Select Your College</h2>
+            <form method="post">
+                <div class="input-field">
+
+                    <select id="college" name="college">
+                        <option value="">Select Your College</option>
+                        <option value="College of Engineering, Pune">College of Engineering, Pune</option>
+                        <option value="Pune Institute of Computer Technology">Pune Institute of Computer Technology
+                        </option>
+                        <option value="Veermata Jijabai Technological Institute">Veermata Jijabai Technological
+                            Institute</option>
+                        <option value="Vishwakarma Institute of Technology, Pune">Vishwakarma Institute of Technology,
+                            Pune</option>
+                        <option value="Pimpri Chinchwad College of Engineering, Pune">Pimpri Chinchwad College of
+                            Engineering, Pune</option>
+                        <option value="D.Y. Patil College of Engineering, Akurdi">D.Y. Patil College of Engineering,
+                            Akurdi</option>
+                        <option value="D. Y. Patil Institute of Management & Research">D. Y. Patil Institute of
+                            Management & Research</option>
+
+                            
+                        </select>
+                        <select id="bookType" name="bookType">
+                            <label for="bookType">Book Category:</label>
+                            <option value="">Select a Branch</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Chemical Engineering">Chemical Engineering</option>
+                            <option value="E&TC Engineering">E&TC Engineering</option>
+                        </select>
+                </div>
+                <input class="submit-btn" type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

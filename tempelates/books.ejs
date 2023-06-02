@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Footer links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>BookShlef</title>
+
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #990011 10%, #FCF6F5 80%);
+  }
+
+  /* Style for card container */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+  }
+
+  /* Style for individual card */
+  .card {
+    width: 25%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+
+    box-shadow: rgb(11 111 111 / 50%) 0 0 8px;
+
+    padding: 23px;
+    margin: 23px 59px;
+
+
+    /* margin: auto; */
+    /* box-shadow: 0px 0px 5px #d3d2d2; */
+  }
+
+  /* Style for card image */
+  .card img {
+    width: 49%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  /* Style for card title */
+  .card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Style for card price */
+  .card p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: transparent;
+    /* border: 2px solid red; */
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    filter: invert(100);
+    margin: 7px;
+  }
+
+  .logo span {
+    display: inline-block;
+    font-size: 23px;
+    font-weight: bold;
+    color: beige;
+  }
+
+  .links {
+    display: flex;
+
+  }
+
+  .links a {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    letter-spacing: 1px;
+
+  }
+
+  .links a:hover {
+    color: rgba(0, 0, 0, 0.852);
+    text-decoration: underline;
+
+  }
+
+  hr {
+    margin-bottom: 26px;
+
+
+  }
+
+  /* Footer css */
+  .footer-main {
+    padding-top: 0px;
+    position: static;
+    margin-bottom: -30px;
+    /* bottom: 0%; */
+    /* margin: 0; */
+  }
+
+  .address-main>div.col-lg-4 {
+    border-bottom: dotted 1px #999;
+  }
+
+  .address-box {
+    padding: 10px 0;
+    margin-bottom: 30px;
+  }
+
+  .add-icon {
+    /* float: left; */
+    width: 60px;
+    display: inline-block;
+    padding: 0px 5px;
+  }
+
+  .address-box .add-icon {
+    background: #27303b;
+    height: 75px;
+    line-height: 75px;
+    width: 75px;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .add-icon img {
+    width: 100%;
+  }
+
+  .address-box .add-icon img {
+    max-width: 40px;
+  }
+
+  .add-content {
+    padding-left: 70px;
+  }
+
+  .add-content h5 {
+    font-size: 17px;
+    color: #ffffff;
+    padding: 0;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .add-content p {
+    font-size: 13px;
+    color: #999999;
+    font-weight: 300;
+  }
+
+  .add-content p a {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 300;
+    word-wrap: break-word;
+  }
+
+  .add-content p a:hover {
+    color: #ffb32d;
+  }
+
+  .footer-main {
+    padding-top: 90px;
+  }
+
+  .address-main>div.col-lg-4 {
+    border-bottom: dotted 1px #999;
+  }
+
+  .address-box {
+    padding: 10px 0;
+    margin-bottom: 30px;
+  }
+
+  .add-icon {
+    /* float: left; */
+    width: 60px;
+    display: inline-block;
+    padding: 0px 5px;
+  }
+
+  .address-box .add-icon {
+    background: #27303b;
+    height: 75px;
+    line-height: 75px;
+    width: 75px;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .add-icon img {
+    width: 100%;
+  }
+
+  .address-box .add-icon img {
+    max-width: 40px;
+  }
+
+  .add-content {
+    padding-left: 70px;
+  }
+
+  .add-content h5 {
+    font-size: 17px;
+    color: #ffffff;
+    padding: 0;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .add-content p {
+    font-size: 13px;
+    color: #999999;
+    font-weight: 300;
+  }
+
+  .add-content p a {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 300;
+    word-wrap: break-word;
+  }
+
+  .add-content p a:hover {
+    color: #ffb32d;
+  }
+
+
+
+  /* .btn {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: relative;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px .2px #00000035;
+  box-shadow: 1px 1px 5px .2px #00000035;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  transition-delay: .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: space-between;
+}
+
+.btn:hover {
+  width: 150px;
+  transition-delay: .2s;
+}
+
+.btn:hover > .paragraph {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: .4s;
+  transition-delay: .4s;
+}
+
+.btn:hover > .icon-wrapper .icon {
+  transform: scale(1.1);
+}
+
+.bnt:hover > .icon-wrapper .icon path {
+  stroke: black;
+}
+
+.paragraph {
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 18px;
+  margin-right: 20px;
+  padding-left: 20px;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field{
+  display: flex;
+  justify-content: space-between;
+  
+} */
+
+  /* wishlist css ends */
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    /* margin: 20px; */
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sign svg {
+    width: 17px;
+  }
+
+  .sign svg path {
+    fill: white;
+  }
+
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px, 2px);
+  }
+
+  .btns {
+    width: 22em;
+    height: 3em;
+    margin: 10px;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: white;
+    background-color: black;
+    box-shadow: 6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .btns::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #ffa20c 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+  }
+
+  .btns:hover::before {
+    width: 23em;
+  }
+
+  .btns a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+  }
+</style>
+
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+
+      <img src="/images/logo.png" height="70px" alt="">
+      <span>BOOKSHELF</span>
+
+    </div>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <!-- <a href="#">Services</a> -->
+      <form action="/logout" method="GET">
+
+        <button type="submit" class="Btn">
+
+          <div class="sign"><svg viewBox="0 0 512 512">
+              <path
+                d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+              </path>
+            </svg></div>
+
+          <div class="text">Logout</div>
+        </button>
+      </form>
+
+
+
+    </div>
+  </div>
+  <hr>
+  <div class="card-container">
+    <% if (items && items.length> 0) { %>
+      <% items.forEach(function(image) { %>
+        <% if (image && image.img && image.img.contentType && image.img.data) { %>
+          <div class="card">
+            <div class="box">
+              <img src="data:image/<%=image.img.contentType%>;base64,<%=image.img.data.toString('base64')%>">
+            </div>
+
+            <div>
+              <h3>Title : <%= image.title %>
+              </h3>
+              <p>Price : ₹<%= image.price %>
+              </p>
+              <p>MRP : ₹<%= image.mrp %>
+              </p>
+              <p>Price Type:<%= image.priceType %>
+              </p>
+              <!-- <p>Book Condition: <%= image.bookCondition %>
+              </p> -->
+              <!-- <p>Branch : <%= image.bookType%> -->
+              </p>
+              <div class="field">
+                <div class="f1">
+                
+                  <button class="btns"><a href="/buy/<%= image._id %>">Shop Now</a></button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <% } %>
+            <% }) %>
+              <% } else { %>
+                <p>No images found</p>
+                <% } %>
+  </div>
+
+
+
+  <footer class="text-center text-lg-start bg-dark text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+
+
+
+
+
+  
+
+</body>
+
+</html>

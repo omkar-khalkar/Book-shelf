@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <title>Product Info</title>
+</head>
+
+<style>
+    body {
+        /* font-family: Arial, sans-serif; */
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(90deg, #E2D1F9 10%, #317773 80%);
+    }
+
+    .bookinfo {
+        margin: 23px;
+        display: flex;
+        border-radius: 14px;
+        border: 2px solid black;
+        width: 70%;
+        height: 90vh;
+        background-color: #ffffff;
+
+
+    }
+
+
+    .bookimg {
+        width: 40%;
+        height: auto;
+        text-align: center;
+        margin: auto;
+    }
+
+    /* .bookimg p { */
+        /* margin-top: 46px; */
+        /* position: absolute; */
+        /* margin */
+        /* position: absolute;
+        right: 38%; */
+
+    /* } */
+
+    .bookimg img {
+        /* position: relative; */
+        /* top: 25%; */
+        margin: 50px;
+
+        /* height: 300px; */
+        /* align-items: center; */
+        width: 300px;
+
+    }
+
+    .bookimg p {
+        /* text-align: center; */
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+    }
+
+    /* .description {
+        width: 100%;
+    }
+
+    .description {
+
+        border: 2px solid black;
+        width: 65%;
+        font-size: 20px;
+        color: black;
+        margin: 5px;
+        text-align: left;
+
+    } */
+
+
+
+
+    .info {
+        /* display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; */
+        width: 55%;
+        margin-top: 93px;
+        margin-right: 217px;
+        /* margin-left: 33px; */
+        font-size: px;
+    }
+
+   
+
+   
+
+    .title h2 {
+
+        color: rgb(0, 0, 0);
+    }
+
+    i {
+        color: rgb(119, 119, 119);
+
+    }
+
+    .sidebar {
+        background-color: white;
+        width: 25%;
+        /* border: 2px solid red; */
+        height: 50vh;
+        margin-top: 30px;
+        margin-right: 20px;
+        border-radius: 12px;
+    }
+
+    .box {
+        display: flex;
+    }
+    form{
+        display: flex;
+        
+        flex-direction:column;
+    }
+    textarea{
+       
+        display: block;
+        width:70%;
+        height: 125px;
+        margin: 23px auto;
+    }
+    input[type="submit"]{
+        background-color: #ff5640;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        width: 70%;
+        display: block;
+        margin: auto;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .wp a{
+        text-decoration: none;
+        color: white;
+        background-color: #00a527;
+        padding: 10px 15px;
+        border: none;
+        width: 70%;
+        
+        display: block;
+        margin:10px auto;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+
+    }
+    #wp{
+        color: white;
+    }
+    .sidebar h2{
+        text-align: center;
+    }
+
+</style>
+
+<body>
+    <div class="box">
+
+        <div class="bookinfo">
+            <div class="bookimg">
+
+                <img src="data:image/<%=product.img.contentType%>;base64,<%=product.img.data.toString('base64')%>"
+                    alt="Product Image">
+
+                <div class="title">
+
+                    <h2>
+                        <%= product.title %>
+                    </h2>
+                </div>
+
+                <p>
+                    these images are uploaded by user : <%= product.email %>
+                </p>
+
+
+
+            </div>
+
+
+
+            <div class="info">
+                <!-- <div class="title">
+                
+                <h2>
+                    <%= product.title %>
+                </h2>
+            </div> -->
+                <div class="price">
+
+                    <p><i>Price: ₹</i>
+                        <%= product.price%>
+                    </p>
+                    <hr>
+                </div>
+                <div class="mrp">
+
+                    <p><i>MRP: ₹</i>
+                        <%= product.mrp %>
+                    </p>
+                    <hr>
+                </div>
+                <div class="type">
+
+                    <p><i>Type:</i>
+                        <%= product.bookType %>
+                    </p>
+                    <hr>
+                </div>
+                <div class="condition">
+
+                    <p><i>Condition:</i>
+                        <%= product.bookCondition %>
+                    </p>
+                    <hr>
+                </div>
+                <div class="college">
+
+                    <p><i>College:</i>
+                        <%= product.college %>
+                    </p>
+                    <hr>
+                </div>
+                <div class="description">
+
+                    <p>
+                       <i> Description :</i>
+                    </p>
+                    <div class="deschild">
+                        <%= product.description %><hr>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="sidebar">
+            <h2>  </i> Send Message </h2>
+            <hr>
+            <form action="/buy/<%= product._id %>" method="POST">
+
+                <textarea id="description" name="msg" rows="5" required></textarea>
+                <input type="submit" value="Send Email">
+                
+            </form>
+            <div class="wp">
+                <a style="color:white"  href="https://wa.me/<%= product.mob_number %> "><i id="wp" class="fa fa-whatsapp"></i>Whatsapp</a>
+            </div>
+
+        </div>
+
+    </div>
+   
+
+</body>
+
+</html>

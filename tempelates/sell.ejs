@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShelf</title>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        /* overflow: hidden; */
+        padding: 0;
+    }
+
+    .megacontainer {
+        display: flex;
+        justify-content: center;
+        /* background-image:url('bgofsell.jpg'); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .formcontainer {
+        position: absolute;
+        top: 1%;
+        background: linear-gradient(90deg, #00539C 0%, #EEA47F 92%);
+        /* background-color: #d57a7a; */
+        padding: 0px 28px;
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        width: 55%;
+        max-height: 98vh;
+        /* overflow-y: auto; */
+    }
+
+    .formcontainer>div:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    .formcontainer label {
+        display: block;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    form {
+        width: 85%;
+        padding: 23px;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* flex-direction: column; */
+    }
+
+    .formcontainer input[type="text"],
+    .formcontainer input[type="number"],
+    .formcontainer input[type="email"],
+    .formcontainer textarea {
+        width: 100%;
+        /* margin:  auto; */
+        padding: 8px;
+        border: 1px solid #535353;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    .formcontainer select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    .formcontainer textarea {
+        resize: vertical;
+    }
+
+    .formcontainer input[type="submit"]{
+        background-color: #ff5640;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .formcontainer input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .bookcondition {
+        display: flex;
+    }
+</style>
+
+<body>
+    <div class="megacontainer">
+
+        <div class="formcontainer">
+
+
+            <form action="/sell" method="post" enctype="multipart/form-data">
+                <div class="titlebox">
+
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" placeholder="Enter the title" name="title" required>
+                </div>
+                <div class="pricebox">
+
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" placeholder="Enter the price" name="price" required>
+                </div>
+                <div class="mobilenumber">
+
+                    <label for="mob_number">Mobile Number:</label>
+                    <input type="number" id="mob_number" placeholder="Enter Your Mobile Number" name="mob_number" required>
+                </div>
+                <div class="emailbox">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter the Email" name="email" required>
+                </div>
+
+                <div class="mrpbox">
+
+                    <label for="mrp">MRP:</label>
+                    <input type="number" id="mrp" placeholder="Enter the mrp" name="mrp" required>
+                </div>
+                <div class="pricetypebox">
+
+                    <label for="priceType">Price Type:</label>
+                    <select id="priceType" name="priceType">
+                        <option value="fixed">Fixed</option>
+                        <option value="negotiable">Negotiable</option>
+                    </select>
+                </div>
+
+                <div class="collegebox">
+                    <label for="college">College:</label>
+                    <select id="college" name="college">
+                        <option value="">Select Your College</option>
+                        <option value="College of Engineering, Pune">College of Engineering, Pune</option>
+                        <option value="Pune Institute of Computer Technology">Pune Institute of Computer Technology
+                        </option>
+                        <option value="Veermata Jijabai Technological Institute">Veermata Jijabai Technological
+                            Institute</option>
+                        <option value="Vishwakarma Institute of Technology, Pune">Vishwakarma Institute of Technology,
+                            Pune</option>
+                        <option value="Pimpri Chinchwad College of Engineering, Pune">Pimpri Chinchwad College of
+                            Engineering, Pune</option>
+                        <option value="D.Y. Patil College of Engineering, Akurdi">D.Y. Patil College of Engineering,
+                            Akurdi</option>
+                        <option value="D. Y. Patil Institute of Management & Research">D. Y. Patil Institute of
+                            Management & Research</option>
+
+                    </select>
+                </div>
+
+                <div class="bookcondition">
+
+                    <label for="bookCondition">Book Condition:</label>
+                    <input type="radio" id="new" name="bookCondition" value="new" checked>
+                    <label for="new">New</label>
+                    <input type="radio" id="used" name="bookCondition" value="used">
+                    <label for="used">Used</label>
+                </div>
+
+
+                <div class="bookcategory">
+
+                    <select id="bookType" name="bookType">
+                        <label for="bookType">Book Category:</label>
+                        <option value="">Select a Branch</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="E&TC Engineering">E&TC Engineering</option>
+                    </select>
+                </div>
+                <div class="imgupload">
+
+                    <label for="image">Upload Images:</label>
+                    <input type="file" enctype="multipart/form-data" id="file" name="file">
+                </div>
+
+                <div class="descriptionbox">
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+
+                <div class="submitbtn">
+
+                    <input type="submit" value="Submit">
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+   
+</body>
+
+</html>
