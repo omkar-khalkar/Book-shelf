@@ -190,7 +190,7 @@ app.post("/sell", upload.single("file"), function (req, res) {
     // process.cwd() -> Project directory
     // __dirname -> Current directory
     newImage.img.data = fs.readFileSync(
-      path.join(__dirname + "/uploads/" + image.filename)
+      path.join(__dirname + "/public/images" + image.filename)
     );
 
     newImage.img.contentType = "image/jpg";
