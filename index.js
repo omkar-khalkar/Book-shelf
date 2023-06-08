@@ -68,6 +68,9 @@ app.get("/home", (req, res) => {
 app.get("/sell", (req, res) => {
   res.render("sell");
 });
+app.get("/forgot-password", (req, res) => {
+  res.render("forgot-password");
+});
 
 
 app.get("/buy/:productId", async (req, res) => {
@@ -169,6 +172,42 @@ app.post("/selectclg", function (req, res) {
       res.render("books", { items: items });
     }
   });
+});
+// Add the following route handler for forgot password
+app.post("/forgot-password", async (req, res) => {
+  const { email } = req.body;
+
+  // Check if the user exists with the provided email
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.send("No user found with the provided email");
+  }
+
+  // Generate a password reset token
+  const token = crypto.randomBytes(32).toString("hex");
+
+  // Save the token and its expiration date in the user document
+  user.resetPasswordToken = token;
+  user.resetPasswordExpires = Date.now() + 3600000; // Token expires in 1 hour
+  await user.save();
+
+  // Send the password reset link to the user's email
+  const resetLink = `http://example.com/reset-password?token=${token}`;
+  const msg = {
+    to: email,
+    from: "your-email",
+    subject: "Password Reset",
+    text: `Click on the following link to reset your password: ${resetLink}`,
+  };
+
+  try {
+    await sgMail.send(msg);
+    console.log("Password reset email sent successfully");
+    res.send("Password reset instructions sent to your email");
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    res.send("Error sending password reset email");
+  }
 });
 
 // Uploading the image to our database. POST
@@ -297,7 +336,71 @@ app.get("/logout", (req, res) => {
   // Redirect the user to the login page or any other desired page
 });
 
-let wishlist = [];
+app.post("/reset-password", async (req, res) => {
+  const { email } = req.body;
+
+  // Check if the user exists with the provided email
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.send("No user found with the provided email");
+  }
+
+  // Generate a password reset token
+  const token = crypto.randomBytes(32).toString("hex");
+
+  // Save the token and its expiration date in the user document
+  user.resetPasswordToken = token;
+  user.resetPasswordExpires = Date.now() + 3600000; // Token expires in 1 hour
+  await user.save();
+
+  // Send the password reset link to the user's email
+  const resetLink = `http://example.com/reset-password/${token}`;
+  const msg = {
+    to: email,
+    from: "bookshelf34614@gmail.com",
+    subject: "Password Reset",
+    text: `Click on the following link to reset your password: ${resetLink}`,
+  };
+
+  try {
+    await sgMail.send(msg);
+    console.log("Password reset email sent successfully");
+    res.send("Password reset instructions sent to your email");
+  } catch (error) {
+    console.error("Error sending password reset email:", error);
+    res.send("Error sending password reset email");
+  }
+});
+
+
+app.post("/reset-password", async (req, res) => {
+  const { token, password, passwordConfirm } = req.body;
+
+  // Find the user with the provided reset password token
+  const user = await User.findOne({
+    resetPasswordToken: token,
+    resetPasswordExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return res.send("Invalid or expired reset password token");
+  }
+
+  // Validate the password and password confirmation
+  if (password !== passwordConfirm) {
+    return res.send("Passwords do not match");
+  }
+
+  // Update the user's password and reset password fields
+  user.password = password;
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpires = undefined;
+  await user.save();
+
+  // Redirect the user to the login page or any other desired page
+  res.redirect("/login");
+});
+
 
 
 
